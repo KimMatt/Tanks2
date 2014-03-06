@@ -1,11 +1,13 @@
 package t2.entities;
 
+import java.awt.Graphics;
+
 public class Turret extends Entity implements canRotate{
+	double theta;
 
 	@Override
 	public double getAngle() {
-		// TODO Auto-generated method stub
-		return 0;
+		return theta;
 	}
 
 	@Override
@@ -15,7 +17,7 @@ public class Turret extends Entity implements canRotate{
 	}
 
 	@Override
-	void paint() {
+	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,5 +1,6 @@
 package t2.entities;
 
+@SuppressWarnings("serial")
 public class EntityException extends Throwable{
 
 	//The entity that throws the exception.

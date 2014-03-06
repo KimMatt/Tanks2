@@ -1,5 +1,7 @@
 package t2.entities;
 
+import java.awt.Graphics;
+
 public class Wind extends Entity implements canRotate{
 	//Direction of the wind, in radians.
 	public static double direction = 0;
@@ -9,7 +11,7 @@ public class Wind extends Entity implements canRotate{
 	public static final double modifier = 0.5;
 
 	@Override
-	void paint() {
+	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}

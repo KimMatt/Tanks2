@@ -1,5 +1,7 @@
 package t2.entities;
 
+import java.awt.Graphics;
+
 public class Bullet extends Entity implements canMove {
 	//X and Y speeds
 	double dx;
@@ -12,11 +14,30 @@ public class Bullet extends Entity implements canMove {
 	 * @param x initial x position
 	 * @param y initial y position
 	 */
-	public Bullet(int x, int y){
+	public Bullet(int x, int y) {
 		super.x = new int[]{x};
 		super.y = new int[]{y};
+		dx = 0;
+		dy = 0;
 	}
 	
+	/**
+	 * Creates a new Bullet entity with its initial x and y points
+	 * @param x an array with the x point, must be of length 1
+	 * @param y an array with the y point, must be of length 1
+	 * @throws EntityException when improper coordinates are given.
+	 */
+	public Bullet(int[] x, int[] y) throws EntityException {
+		if(x.length == 1 && y.length ==1) {
+			super.x = x;
+			super.y = y;
+			dx = 0;
+			dy = 0;
+		}
+		else {
+			throw invldCoords;
+		}
+	}
 	/**
 	 * Moves the bullet, changing its x and y coordinates according to its
 	 * speeds and wind direction + magnitude.
@@ -62,7 +83,7 @@ public class Bullet extends Entity implements canMove {
 	}
 
 	@Override
-	void paint() {
+	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}

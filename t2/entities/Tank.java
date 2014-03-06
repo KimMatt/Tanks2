@@ -1,13 +1,23 @@
 package t2.entities;
 
+import java.awt.Graphics;
+
 public class Tank extends Entity implements canMove, canRotate {
-	double theta = Math.PI/2;
-	double dx = 0;
-	double dy = 0;
+	double theta;
+	double dx;
+	double dy;
 	
-	public Tank(int[] x, int[] y){
-		super.x = x;
-		super.y = y;
+	public Tank(int[] x, int[] y) throws EntityException{
+		if(x.length == 2 && y.length == 2) {
+			super.x = x;
+			super.y = y;
+			theta = Math.PI/2;
+			dx = 0;
+			dy = 0;
+		}
+		else {
+			throw invldCoords;
+		}
 	}
 
 	@Override
@@ -23,7 +33,6 @@ public class Tank extends Entity implements canMove, canRotate {
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -48,7 +57,7 @@ public class Tank extends Entity implements canMove, canRotate {
 	}
 
 	@Override
-	void paint() {
+	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		
 	}
