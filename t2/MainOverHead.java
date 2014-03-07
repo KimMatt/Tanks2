@@ -24,12 +24,13 @@ public class MainOverHead {
 		Canvas mainGame = new Canvas();
 		overhead.instantiateMainMenu(mainGame);
 		while(gameState == 0){
-			
+			mainGame.update();
 		}
 		overhead.instantiateMainGame(mainGame);
-		while(gameState == 1){ 
-			
+		while(gameState == 1){
+			mainGame.update();
 		}
+		System.exit(0);
 	}
 	
 	public void instantiateMainMenu(Canvas c) {
