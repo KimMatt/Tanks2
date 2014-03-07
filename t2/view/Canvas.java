@@ -16,11 +16,12 @@ public class Canvas extends JFrame {
 	 * associated with it.
 	 */
 	HashMap<Integer, GamePanel> canvases;
-	MainMenu m;
-	MainGame g;
+	GamePanel m;
+	GamePanel g;
 	
 	public Canvas() {
 		m = new MainMenu();
+		canvases = new HashMap<Integer, GamePanel>();
 		this.frameInit();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1820,900);
