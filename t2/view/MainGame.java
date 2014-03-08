@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import t2.entities.Entity;
 
-public class MainGame extends GamePanel{
+public class MainGame extends GamePanel {
 	ArrayList<Entity> entities = new ArrayList<Entity>();
 	
 	public void paint(Graphics g) {

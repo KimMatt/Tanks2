@@ -11,10 +11,10 @@ import t2.view.*;
  * www.github.com/KimMatt
  */
 
-public class ControlInput implements KeyListener{
+public class ControlInput implements KeyListener {
 	ControlSet controls;
 	
-	public void setControlSet(ControlSet controls){
+	public void setControlSet(ControlSet controls) {
 		this.controls = controls;
 	}
 

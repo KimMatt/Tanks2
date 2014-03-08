@@ -25,7 +25,7 @@ public class Terrain extends Entity{
 		}
 	}
 	
-	public Terrain(){
+	public Terrain() {
 		
 	}
 

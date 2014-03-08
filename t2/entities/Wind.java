@@ -55,7 +55,7 @@ public class Wind extends Entity implements canRotate{
 	 * @param theta   the angle in radians between 0 and 2Pi
 	 * @return factor a double from 0 to 1.5.
 	 */
-	public double getXFactor(){
+	public double getXFactor() {
 		return Math.cos(Wind.direction) * Wind.modifier * Wind.magnitude;
 	}
 	
@@ -64,7 +64,7 @@ public class Wind extends Entity implements canRotate{
 	 * @param theta   the angle in radians between 0 and 2Pi
 	 * @return factor a double from 0 to 1.5.
 	 */
-	public double getYFactor(){
+	public double getYFactor() {
 		return Math.sin(Wind.direction) * Wind.modifier * Wind.magnitude;
 		
 	}

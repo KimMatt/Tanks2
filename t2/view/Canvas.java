@@ -1,6 +1,7 @@
 package t2.view;
 
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
@@ -19,12 +20,12 @@ public class Canvas extends JFrame {
 	GamePanel m;
 	GamePanel g;
 	
-	public Canvas() {
+	public Canvas() throws IOException {
 		m = new MainMenu();
 		canvases = new HashMap<Integer, GamePanel>();
 		this.frameInit();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1820,900);
+		this.setSize(1200,700);
 		this.setVisible(true);
 		this.add(m);
 		canvases.put(0, m);
@@ -46,7 +47,7 @@ public class Canvas extends JFrame {
 	 * time. If one already exists it will replace it.
 	 */
 	@Override
-	public void addKeyListener(KeyListener l){
+	public void addKeyListener(KeyListener l) {
 		if(super.getKeyListeners().length == 0) {
 			super.addKeyListener(l);
 		}
@@ -59,7 +60,7 @@ public class Canvas extends JFrame {
 	 * Returns the keyListener
 	 * @return listener
 	 */
-	public ControlInput getKeyListener(){
+	public ControlInput getKeyListener() {
 		return (ControlInput) super.getKeyListeners()[0];
 	}
 	
@@ -67,7 +68,7 @@ public class Canvas extends JFrame {
 	 * My own version of update, it updates the data and repaints the
 	 * JPanels.
 	 */
-	public void update(){
+	public void update() {
 		canvases.get(MainOverHead.gameState).update();
 		this.repaint();
 	}

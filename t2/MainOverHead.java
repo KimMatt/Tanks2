@@ -1,5 +1,7 @@
 package t2;
 
+import java.io.IOException;
+
 import t2.view.Canvas;
 import t2.playercontrols.ControlInput;
 import t2.playercontrols.MainMenuControlSet;
@@ -19,20 +21,25 @@ public class MainOverHead {
 	 */
 	public static int gameState = 0;
 	
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		MainOverHead overhead = new MainOverHead();
 		Canvas mainGame = new Canvas();
 		overhead.instantiateMainMenu(mainGame);
-		while(gameState == 0){
+		while(gameState == 0) {
 			mainGame.update();
 		}
 		overhead.instantiateMainGame(mainGame);
-		while(gameState == 1){
+		while(gameState == 1) {
 			mainGame.update();
 		}
 		System.exit(0);
 	}
 	
+	/**
+	 * Instantiates the main menu by adding a KeySet to the canvas for
+	 * the main menu.
+	 * @param c the canvas.
+	 */
 	public void instantiateMainMenu(Canvas c) {
 		ControlInput controls = new ControlInput();
 		MainMenuControlSet mmSet = new MainMenuControlSet();
@@ -40,6 +47,11 @@ public class MainOverHead {
 		c.addKeyListener(controls);
 	}
 	
+	/**
+	 * Instantiates the main game by changing the ControlSet to the Player
+	 * Control Set and calling the StartGame method from the canvas.
+	 * @param c the canvas.
+	 */
 	public void instantiateMainGame(Canvas c) {
 		PlayerControlSet player = new PlayerControlSet();
 		c.getKeyListener().setControlSet(player);

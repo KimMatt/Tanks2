@@ -15,6 +15,5 @@ public class EntityException extends Throwable{
 		super(message);
 		this.thrower = thrower;
 	}
-
 	
 }
