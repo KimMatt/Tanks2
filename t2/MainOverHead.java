@@ -26,11 +26,11 @@ public class MainOverHead {
 		Canvas mainGame = new Canvas();
 		overhead.instantiateMainMenu(mainGame);
 		while(gameState == 0) {
-			mainGame.update();
+			mainGame.repaint();
 		}
 		overhead.instantiateMainGame(mainGame);
 		while(gameState == 1) {
-			mainGame.update();
+			mainGame.repaint();
 		}
 		System.exit(0);
 	}
@@ -42,7 +42,7 @@ public class MainOverHead {
 	 */
 	public void instantiateMainMenu(Canvas c) {
 		ControlInput controls = new ControlInput();
-		MainMenuControlSet mmSet = new MainMenuControlSet();
+		MainMenuControlSet mmSet = new MainMenuControlSet(c.getM(), c);
 		controls.setControlSet(mmSet);
 		c.addKeyListener(controls);
 	}
@@ -51,11 +51,16 @@ public class MainOverHead {
 	 * Instantiates the main game by changing the ControlSet to the Player
 	 * Control Set and calling the StartGame method from the canvas.
 	 * @param c the canvas.
+	 * @throws IOException 
 	 */
-	public void instantiateMainGame(Canvas c) {
+	public void instantiateMainGame(Canvas c) throws IOException {
 		PlayerControlSet player = new PlayerControlSet();
 		c.getKeyListener().setControlSet(player);
 		c.startGame();
+	}
+	
+	public static void setGameState(int state){
+		gameState = state;
 	}
 	
 }

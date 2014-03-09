@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import t2.MainOverHead;
 import t2.playercontrols.ControlInput;
 
@@ -20,6 +18,11 @@ public class Canvas extends JFrame {
 	GamePanel m;
 	GamePanel g;
 	
+	/**
+	 * Initiates the canvas, sets the size of the window, and adds the 
+	 * main menu JPanel.
+	 * @throws IOException
+	 */
 	public Canvas() throws IOException {
 		m = new MainMenu();
 		canvases = new HashMap<Integer, GamePanel>();
@@ -32,13 +35,18 @@ public class Canvas extends JFrame {
 		this.repaint();
 	}
 	
-	public void startGame() { 
+	/**
+	 * Starts the main game by removing the main menu JPanel and
+	 * adding the new main game JPanel
+	 * @throws IOException
+	 */
+	public void startGame() throws IOException { 
 		g = new MainGame();
-		this.removeAll();
-		this.revalidate();
-		this.repaint();
-		this.add(g);
 		canvases.put(1, g);
+		this.revalidate();
+		this.remove(m);
+		this.add(g);
+		this.repaint();
 	}
 	
 	/**
@@ -65,12 +73,20 @@ public class Canvas extends JFrame {
 	}
 	
 	/**
-	 * My own version of update, it updates the data and repaints the
+	 * My own version of repaint, it updates the data and repaints the
 	 * JPanels.
 	 */
-	public void update() {
+	public void repaint() {
 		canvases.get(MainOverHead.gameState).update();
-		this.repaint();
+		canvases.get(MainOverHead.gameState).paint(this.getGraphics());
+	}
+
+	public MainMenu getM() {
+		return (MainMenu)m;
+	}
+
+	public MainGame getG() {
+		return (MainGame)g;
 	}
 	
 }
