@@ -17,7 +17,7 @@ public class MainMenu extends GamePanel {
 	}
 	public void paint(Graphics g) {
 		g.setColor(Color.CYAN);
-		g.drawImage(title, 300, 300, null);
+		g.drawImage(title, 0, 0, null);
 	}
 
 	@Override
