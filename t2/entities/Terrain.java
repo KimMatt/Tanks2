@@ -36,37 +36,18 @@ public class Terrain extends Entity{
 	public void generateTerrain(){
 		Terrain.x = new int[Canvas.width + 2];
 		Terrain.y = new int[Canvas.width + 2];
-		int y = 400;
+		double y = 400;
 		Terrain.x[0] = 0;
 		Terrain.y[0] = Canvas.height;
 		Random randomGenerator = new Random();
-		for(int i = 1; i <= Canvas.width; i +=4){
-			Terrain.x[i] = i;
-			Terrain.x[i+1] = i + 1;
-			Terrain.x[i+2] = i + 2;
-			Terrain.x[i+3] = i + 3;
-			if(y == 550) {
-			y--;
-			Terrain.y[i] = y;
-			Terrain.y[i+1] = y;
-			Terrain.y[i+2] = y;
-			Terrain.y[i+3] = y;
+		for(int i = 1; i <= Canvas.width; i+=25) {
+			double randomSlope = -.5 + (.5 +.5) * randomGenerator.nextDouble();
+			for(int j = 0; j <25; j++) {
+				Terrain.x[i + j] = i + j;
+				Terrain.y[i + j] = (int)y;
+				y = y + randomSlope;
 			}
-			else if(y == 250) {
-			y++;
-			Terrain.y[i] = y;
-			Terrain.y[i+1] = y;
-			Terrain.y[i+2] = y;
-			Terrain.y[i+3] = y;
-			}
-			else {
-			int factor = ((int)Math.round(randomGenerator.nextInt(3)))-1;
-			y = y + factor;
-			Terrain.y[i] = y;
-			Terrain.y[i+1] = y;
-			Terrain.y[i+2] = y;
-			Terrain.y[i+3] = y;
-			}
+			y = y - randomSlope;
 		}
 		Terrain.x[Canvas.width + 1] = Canvas.width;
 		Terrain.y[Canvas.width + 1] = Canvas.height;

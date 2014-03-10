@@ -20,7 +20,7 @@ public class Canvas extends JFrame {
 	
 	//Height of the screen, must be a multiple of 2.
 	public static int height = 700;
-	//Width of the screen, must be a multiple of 2.
+	//Width of the screen, must be a multiple of 20.
 	public static int width = 1200;
 	
 	/**
