@@ -7,27 +7,43 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+
 import t2.entities.Entity;
+import t2.entities.Terrain;
+import t2.entities.notAutonomous;
 
 public class MainGame extends GamePanel {
 	ArrayList<Entity> entities = new ArrayList<Entity>();
 	Image background;
 	Graphics g;
+	Terrain terrain;
 	
 	public MainGame() throws IOException{
+		terrain = new Terrain();
 		background = ImageIO.read(new File("src/Tanks2Title.jpg"));
+		terrain.generateTerrain();
+		entities.add(terrain);
 	}
 	
+	/**
+	 * Paints each entity.
+	 */
 	public void paint(Graphics g) {
-		System.out.println("Whyy");
 		g.drawImage(background, 0, -700, null);
-		for(int i = 0; i<entities.size(); i++) {
-			entities.get(i).paint(g);
+		for(Entity each: entities) {
+			each.paint(g);
 		}
 	}
 	
+	/**
+	 * Updates all entities that are not autonomous, ie. gravity.
+	 */
 	public void update() {
-		
+		for(Entity each: entities){
+			if(each instanceof notAutonomous){
+				((notAutonomous)each).update();
+			}
+		}
 	}
 
 }

@@ -40,8 +40,8 @@ public class MainMenu extends GamePanel {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		
 	}
+	
 	/**
 	 * Puts the automatic painting on hold and transitions the screen from the
 	 * main menu to the game.
@@ -49,7 +49,7 @@ public class MainMenu extends GamePanel {
 	 */
 	public void transition(Graphics g) {
 		notInTransition = false;
-		for(int i = 0; i<700; i+=5){
+		for(int i = 0; i<700; i+=20){
 			g.drawImage(title, 0, -i, null);
 		}
 		MainOverHead.setGameState(1);

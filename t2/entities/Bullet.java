@@ -2,7 +2,7 @@ package t2.entities;
 
 import java.awt.Graphics;
 
-public class Bullet extends Entity implements canMove {
+public class Bullet extends Entity implements canMove, notAutonomous {
 	//X and Y speeds
 	double dx;
 	double dy;
@@ -84,6 +84,12 @@ public class Bullet extends Entity implements canMove {
 
 	@Override
 	public void paint(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update() {
 		// TODO Auto-generated method stub
 		
 	}

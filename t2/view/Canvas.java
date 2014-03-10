@@ -18,6 +18,11 @@ public class Canvas extends JFrame {
 	GamePanel m;
 	GamePanel g;
 	
+	//Height of the screen, must be a multiple of 2.
+	public static int height = 700;
+	//Width of the screen, must be a multiple of 2.
+	public static int width = 1200;
+	
 	/**
 	 * Initiates the canvas, sets the size of the window, and adds the 
 	 * main menu JPanel.
@@ -28,7 +33,7 @@ public class Canvas extends JFrame {
 		canvases = new HashMap<Integer, GamePanel>();
 		this.frameInit();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1200,700);
+		this.setSize(width, height);
 		this.setVisible(true);
 		this.add(m);
 		canvases.put(0, m);
@@ -77,8 +82,11 @@ public class Canvas extends JFrame {
 	 * JPanels.
 	 */
 	public void repaint() {
-		canvases.get(MainOverHead.gameState).update();
 		canvases.get(MainOverHead.gameState).paint(this.getGraphics());
+	}
+	
+	public void update() {
+		canvases.get(MainOverHead.gameState).update();
 	}
 
 	public MainMenu getM() {
