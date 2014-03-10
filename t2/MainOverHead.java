@@ -29,8 +29,9 @@ public class MainOverHead {
 			mainGame.repaint();
 		}
 		overhead.instantiateMainGame(mainGame);
+		mainGame.repaint();
 		while(gameState == 1) {
-			mainGame.repaint();
+			mainGame.update();
 		}
 		System.exit(0);
 	}
