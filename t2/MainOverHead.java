@@ -21,7 +21,7 @@ public class MainOverHead {
 	 */
 	public static int gameState = 0;
 	
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 		MainOverHead overhead = new MainOverHead();
 		Canvas mainGame = new Canvas();
 		overhead.instantiateMainMenu(mainGame);

@@ -20,7 +20,7 @@ public class MainGame extends GamePanel {
 	
 	public MainGame() throws IOException{
 		terrain = new Terrain();
-		background = ImageIO.read(new File("src/Tanks2Title.jpg"));
+		background = ImageIO.read(new File("images/Tanks2Title.jpg"));
 		terrain.generateTerrain();
 		entities.add(terrain);
 	}

@@ -23,7 +23,7 @@ public class MainMenu extends GamePanel {
 	 * @throws IOException
 	 */
 	public MainMenu() throws IOException {
-		title = ImageIO.read(new File("src/Tanks2Title.jpg"));
+		title = ImageIO.read(new File("images/Tanks2Title.jpg"));
 		notInTransition = true;
 	}
 	
